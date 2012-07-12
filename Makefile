@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -g -Wall -MMD
+CXXFLAGS = -g -Wall -Wextra -MMD
 OBJECTS = vendingmachinecardeater.o vendingmachineovercharger.o watcard.o watcardoffice.o student.o nameserver.o bottlingplant.o truck.o printer.o driver.o
 DEPENDS = ${OBJECTS:.o=.d}
 EXEC = a5.out
