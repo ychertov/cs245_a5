@@ -1,5 +1,7 @@
 //produces random new quantities of each flavour of soda, [0, MaxShippedPerFlavour]
 
+#include "bottlingplant.h"
+
 static bool DEBUG = true;
 
 BottlingPlant::BottlingPlant( Printer &prt, NameServer &nameServer, unsigned int numVendingMachines, unsigned int maxShippedPerFlavour, unsigned int maxStockPerFlavour, unsigned int maxStockPerFlavour, unsigned int timeBetweenShipments ) {
