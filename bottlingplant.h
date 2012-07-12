@@ -1,14 +1,25 @@
 //This is the header file bottlingplant.h (this is the interface for the class BottlingPlant.h
-
 #ifndef BOTTLINGPLANT_H
 #define BOTTLINGPLANT_H
 
+#include "printer.h"
+#include "nameserver.h"
+
 class BottlingPlant {//produces random new quantities of each flavour of soda, [0, MaxShippedPerFlavour]
+	private:
+		Printer &prt;
+		NameServer &nameServer;
+		unsigned int numVendingMachines;
+		unsigned int maxShippedPerFlavour;
+		unsigned int maxStockPerFlavour;
+		unsigned int maxStockPerFlavour;
+		unsigned int timeBetweenShipments;
+
 	public:
 		BottlingPlant( Printer &prt, NameServer &nameServer, unsigned int numVendingMachines, unsigned int maxShippedPerFlavour, unsigned int maxStockPerFlavour, unsigned int maxStockPerFlavour, unsigned int timeBetweenShipments );
 
-	void getShipment( unsigned int cargo[] );
-	void action();
+		void getShipment( unsigned int cargo[] );
+		void action();
 }
 
 #endif //BOTTLINGPLANT
