@@ -3,7 +3,7 @@
 
 #include "printer.h"
 
-class VencdingMachine;
+class VendingMachine;
 
 class NameServer {
 	private:
