@@ -1,19 +1,10 @@
-#ifndef __VENDINGMACHINECARDEATER_H__
-#define __VENDINGMACHINECARDEATER_H__
+#include "vendingmachinecardeater.h"
 
-#include "printer.h"
-#include "nameserver.h"
-#include "flavours.h"
-#include "watcard.h"
+VendingMachineCardEater::VendingMachineCardEater( Printer &prt, NameServer &nameServer, unsigned int id, unsigned int sodaCost, unsigned int maxStockPerFlavour ) {
+}
 
-class VendingMachineCardEater : public VendingMachine {
-	
-	public:
-		VendingMachineCardEater( Printer &prt, NameServer &nameServer, unsigned int id, unsigned int sodaCost, unsigned int maxStockPerFlavour );
-
-	Status buy ( Flavours flavour, WATCard *&card );
-		/*
-			Overrides Vending machine buy, has a 1 in 10 chance to nullify card
-		*/
-};
-#endif
+Status VendingMachineCardEater::buy( Flavours flavour, WATCard *&card ) {
+/*
+	Overrides Vending machine buy, has a 1 in 10 chance to nullify card
+*/
+}
