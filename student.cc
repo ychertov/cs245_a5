@@ -1,11 +1,8 @@
 //This is the header file class.h (the interface for the class Student)
 
-#define DTIME_H
-#ifndef STUDENT_H
+#include "student.h"
 
-class Student {//A Student’s function is to buy some of their favourite soda from a vending machine.
-	public:
-		Student( Printer &prt, NameServer &nameServer, WATCardOffice &cardOffice, unsigned int id, unsigned int maxPurchases );
+Student::Student( Printer &prt, NameServer &nameServer, WATCardOffice &cardOffice, unsigned int id, unsigned int maxPurchases ) {
 	/*
 		**STUDENT CONTRUCTOR SPECIFICATIONS**
 		-->id: [0, NumStudents)
@@ -14,13 +11,11 @@ class Student {//A Student’s function is to buy some of their favourite soda f
 		-->creating a WATCard (dynamically) with a $5 balance via the WATCardOfﬁce
 		-->obtaining the location of a vending machine from the name server
 	*/
+}
 
-	bool action();//the way a students behaviour is defined.
+bool Student::action() {
 	/*
 		*FALSE:-->When a student has purchased all the soda initially selected
 		*TRUE:-->If the vending machine delivered a bottle of soda, the student drinks it and returns true.
 	*/
-};
-
-#endif
-//Melissa Tardibuono
+}

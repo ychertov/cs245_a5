@@ -1,7 +1,11 @@
 //This is the header file class.h (the interface for the class Student)
 
-#define DTIME_H
+#define STUDENT_H
 #ifndef STUDENT_H
+
+#include "printer.h"
+#include "nameserver.h"
+#include "watcardoffice.h"
 
 class Student {//A Student’s function is to buy some of their favourite soda from a vending machine.
 	public:
