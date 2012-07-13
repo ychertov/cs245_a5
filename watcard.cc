@@ -1,17 +1,13 @@
-//This is the header file watcard.h (the interface for the class WATCard)
+#include "watcard.h"
 
-#ifndef WATCARD_H
-#define WATCARD_H
-
-class WATCard{//Manages the money associated with the card.
-	private:
-		unsigned int balance;
-	public:
-	WATCard(int balance);//contructor (has a $0 balance)
-	~WATCard();//destructor
-	void debit( unsigned int amount);
-	void credit( unsigned int amount);
-	unsigned int getBalance() const;
+WATCard::WATCard(int balance) {
 }
 
-#endif //WATCARD_H
+WATCard::~WATCard() {
+}
+void WATCard::debit( unsigned int amount) {
+}
+void WATCard::credit( unsigned int amount) {
+}
+unsigned int WATCard::getBalance() const {
+}
