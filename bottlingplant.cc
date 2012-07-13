@@ -1,6 +1,7 @@
 //produces random new quantities of each flavour of soda, [0, MaxShippedPerFlavour]
 
 #include "bottlingplant.h"
+#include "nameserver.h"
 
 static bool DEBUG = true;
 
