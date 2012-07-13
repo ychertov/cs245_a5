@@ -1,13 +1,13 @@
-#include "printdatastore"
 #include <assert.h>
+#include "printdatastore.h"
 
-void setData(char st) {
+void PrintDataStore::setData(char st) {
 	assert(!state.first);
 	state.first = true;
 	state.second = st;
 }
 
-void setData(char st, int v1) {
+void PrintDataStore::setData(char st, int v1) {
 	assert(!value1.first);
 	setData(st);
 	
@@ -15,7 +15,7 @@ void setData(char st, int v1) {
 	value1.second = v1;
 }
 
-void setData(char st, int v1, int v2) {
+void PrintDataStore::setData(char st, int v1, int v2) {
 	assert(!value2.first);
 	setData(st, v1);
 
@@ -23,13 +23,13 @@ void setData(char st, int v1, int v2) {
 	value2.second = v2;
 }
 
-void clear() {
+void PrintDataStore::clear() {
 	state.first = false;
 	value1.first = false;
 	value2.first = false;
 }
 
-friend std::iostream& operator<<( std::ostream& os, const PrintDataStore& pds ) {
+std::ostream& operator<<( std::ostream& os, const PrintDataStore& pds ) {
 	if (pds.state.first)
 		os << pds.state.second;
 
@@ -41,8 +41,6 @@ friend std::iostream& operator<<( std::ostream& os, const PrintDataStore& pds ) 
 
 	os << "\t";
 	
-	pds.clear();
-
 	return os;
 }
 

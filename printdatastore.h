@@ -6,27 +6,33 @@
  *	class that stores the print data
  *	
  *	setData: 	stores the data and prepares for printing 
- *	clear:		clears the data internally and makes it ready for new input,
- *             		called after it is printed
+ *	clear:		clears the data and makes it ready for new input,
  *
  *
  */
+
+#include <utility>
+#include <iostream>
+
 class PrintDataStore {
 	private:
-		stl::pair<bool, char> state;
-		stl::pair<bool, int> value1;
-		stl::pair<bool, int> value2;
+		std::pair<bool, char> state;
+		std::pair<bool, int> value1;
+		std::pair<bool, int> value2;
+		
+	public:
+		void setData(char state);
+
+		void setData(char state, int v1);
+
+		void setData(char state, int v1, int v2);
 		
 		void clear();
 	
-	public:
-		void setState(char state);
+    		friend std::ostream &operator<<( std::ostream &os, const PrintDataStore& r );
 
-		void setState(char state, int v1);
-
-		void setState(char state, int v1, int v2);
-	
 };
 
-friend std::iostream& operator<<( std::ostream& os, const PrintDataStore& pds );
+extern std::ostream &operator<<( std::ostream &os, const PrintDataStore& r );
+
 #endif
