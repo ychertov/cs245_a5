@@ -1,9 +1,14 @@
 #include "printer.h"
 
 Printer::Printer( unsigned int numStudents, unsigned int numVendingMachines ) {
+	this->numStudents = numStudents;
+	this->numVendingMachines = numVendingMachines;
 }
+
 Printer::~Printer() {
+	
 }
+
 void Printer::print( Kind kind, char state ) {
 }
 void Printer::print( Kind kind, char state, int value1 ) {
