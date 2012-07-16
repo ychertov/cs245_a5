@@ -1,6 +1,14 @@
 #include <assert.h>
 #include "printdatastore.h"
 
+PrintDataStore::PrintDataStore(){}
+
+PrintDataStore::PrintDataStore(const PrintDataStore& pds) {
+	state = pds.state;
+	value1 = pds.value1;
+	value2 = pds.value2;
+}
+
 void PrintDataStore::setData(char st) {
 	assert(!state.first);
 	state.first = true;
@@ -36,7 +44,7 @@ std::ostream& operator<<( std::ostream& os, const PrintDataStore& pds ) {
 	if (pds.value1.first)
 		os << pds.value1.second;
 
-	if (pds.value2.second)
+	if (pds.value2.first)
 		os << "," << pds.value2.second;
 
 	os << "\t";

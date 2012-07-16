@@ -1,0 +1,127 @@
+#!/bin/bash
+
+usage() {
+        echo "Usage: [-h|--help] [-q|--quiet] suite-file progamToRun"
+        exit 1;
+}
+
+
+#Checks to see if file exists, is a file, and is readable
+fileCheck() {
+
+	fileusage() {
+		echo "Usage: -[efrx] file"
+		echo " Note - flags can be in any order and any amount"
+		echo " eg: -ex file"
+		echo " eg: -fxr file"
+		exit 3;							#Illegal use of internal function: Error 3
+	}
+
+	options=${1}
+
+	checkExists="false"
+	checkFile="false"
+	checkExecutable="false"
+	checkReadable="false"
+
+	i=0
+	while (( i++ < ${#options} )) ; do				#iterate over word letter by letter
+   		letter=$(expr substr "$options" $i 1)			#extract ith letter from word
+		case "${letter}" in
+			'-' ) ;;					#do nothing, just a flag
+			'e' ) checkExists="true" ;;
+			'f' ) checkFile="true" ;;
+			'r' ) checkReadable="true" ;;
+			'x' ) checkExecutable="true" ;;
+	#		* ) fileusage ;;
+		esac
+	done
+	#done < "${options}"
+	#done
+
+	file=${2}
+
+	if [ "${checkExists}" =  "true" -a ! -e ${file} ] ; then
+		echo "Error: ${file} does not exist" 1>&2
+		exit 2;
+	fi
+
+	if [ "${checkFile}" = "true" -a ! -f ${file} ] ; then
+		echo "Error: ${file} is not a file" 1>&2
+		exit 2;
+	fi
+
+        if [ "${checkExecutable}" = "true" -a ! -x ${file} ] ; then
+                echo "Error: ${file} is not exacutable" 1>&2
+                exit 2;
+        fi
+
+        if [ "${checkReadable}" = "true" -a ! -r ${file} ] ; then
+                echo "Error: ${file} is not readable" 1>&2
+                exit 2;
+        fi
+
+}
+
+fileCompaire() {
+	testName=${1}
+	
+	baseFilePath=""
+
+	if [ ! "${1:0:1}" = / ] ; then 
+		baseFilePath=${direc}	
+	fi 
+
+        fileIn="${baseFilePath}/${1}.in"
+	fileOut="${baseFilePath}/${1}.out"
+	fileActual="${baseFilePath}/${1}.actual"
+
+        fileCheck -efr ${fileOut}
+	fileCheck -efr ${fileIn}
+
+        ${program} < ${fileIn} > ${fileActual}                           	#Run the program with the input, create temp file
+        diff ${fileActual} ${fileOut} > /dev/null                               #Compare the output
+
+        if [ ! ${?} -eq 0 ] ; then                                              #If files not idential
+                echo "Test failed: ${testName}"                                 #Print Error msg
+                if [ ${quiet} =  'no' ] ; then
+                        echo "Input:"
+                        cat ${fileIn}
+                        echo "Expected:"
+                        cat ${fileOut}
+                        echo "Actual:"
+                        cat ${fileActual}
+                fi
+        fi
+
+        rm ${fileActual}                                                       #cleanup
+}
+
+
+case "${1}" in
+        '-h' | '--help' )       usage ;;                                        #executes help
+        '-q' | '--quiet' )                                                      #checks for quiet option
+                quiet=yes
+                shift 1
+                ;;
+        * ) quiet=no ;;
+esac
+
+if [ "${#}" -ne "2" ] ; then                                                    #Checks if valid amount of parameters are passed
+        usage
+fi
+
+program=${2}
+export program
+export quiet
+export direc=$(dirname ${program})
+export fileCheck
+suiteFile=${direc}/${1}
+
+fileCheck -efx ${program}	#validates file
+fileCheck -efr ${suiteFile}	#validates file
+
+for file in `egrep '*' ${suiteFile}` ; do                               #For Every file listed
+        fileCompaire ${file}                                            #Compaire equality of files
+done
+

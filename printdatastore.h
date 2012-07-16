@@ -21,11 +21,14 @@ class PrintDataStore {
 		std::pair<bool, int> value2;
 		
 	public:
-		void setData(char state);
+		PrintDataStore();
+		PrintDataStore(const PrintDataStore& pds);
+		
+		void setData(char st);
 
-		void setData(char state, int v1);
+		void setData(char st, int v1);
 
-		void setData(char state, int v1, int v2);
+		void setData(char st, int v1, int v2);
 		
 		void clear();
 	
