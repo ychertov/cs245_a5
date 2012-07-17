@@ -9,18 +9,18 @@ class BottlingPlant {//produces random new quantities of each flavour of soda, [
 	private:
 		Printer &prt;
 		NameServer &nameServer;
+		
 		unsigned int numVendingMachines;
 		unsigned int maxShippedPerFlavour;
-		unsigned int maxStockPerFlavour;
 		unsigned int maxStockPerFlavour;
 		unsigned int timeBetweenShipments;
 
 	public:
-		BottlingPlant( Printer &prt, NameServer &nameServer, unsigned int numVendingMachines, unsigned int maxShippedPerFlavour, unsigned int maxStockPerFlavour, unsigned int maxStockPerFlavour, unsigned int timeBetweenShipments );
+		BottlingPlant( Printer &prt, NameServer &nameServer, unsigned int numVendingMachines, unsigned int maxShippedPerFlavour, unsigned int maxStockPerFlavour, unsigned int timeBetweenShipments );
 
 		void getShipment( unsigned int cargo[] );
 		void action();
-}
+};
 
 #endif //BOTTLINGPLANT
 

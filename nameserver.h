@@ -9,7 +9,7 @@ class NameServer {
 	private:
 		VendingMachine** machineList;
 		Printer &prt;
-		unsigned int numVendingMachines
+		unsigned int numVendingMachines;
 		//student machines
 		void distribute();	
 		/*

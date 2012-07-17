@@ -1,8 +1,6 @@
 #ifndef __PRINTER_H__
 #define __PRINTER_H__
 
-#include "printdatastore.h"
-
 class Printer {
 	public:
 		enum Kind { WATCardOffice, NameServer, Truck, BottlingPlant, Student, Vending };
