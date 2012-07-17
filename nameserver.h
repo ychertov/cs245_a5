@@ -8,6 +8,8 @@ class VendingMachine;
 class NameServer {
 	private:
 		VendingMachine** machineList;
+		Printer &prt;
+		unsigned int numVendingMachines;
 		//student machines
 		void distribute();	
 		/*
