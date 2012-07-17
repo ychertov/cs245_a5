@@ -1,16 +1,22 @@
-//This is the header file for WATCardOffice. (the interface for the class WATCardOffice)
-
-#ifndef WATCARDOFFICE_H
-#define WATCARDOFFICE_H
-
-#include "printer.h"
+#include "watcardoffice.h"
 #include "watcard.h"
 
-class WATCardOffice {//used by a student to create a WATCARD with an initial deposit and transfer funds to their WATCard to buy a soda.
-	public:
-	WATCardOffice( Printer &prt );//constructor
-	WATCard *create( unsigned int id, unsigned int amount );
-	void transfer( unsigned int id, unsigned int amount, WATCard &card);
+WATCardOffice::WATCardOffice( Printer &prt ) {
+	this->prt = prt;
+	prt.print(WATCardOffice::KIND, 'S');
 }
 
-#endif //WATCARDOFFICE_H
+WATCard *WATCardOffice::create( unsigned int id, unsigned int amount ) {
+	WATcard* w = new WATcard(0);
+	w->id = id;
+	w->amount = amount;
+	return w;
+}
+
+void WATCardOffice::transfer( unsigned int id, unsigned int amount, WATCard &card) {
+
+	if( prng(3) == 0){//one in 4 chances
+		balance = balance + amount/2;	
+	}
+	else balance = balance + transfer;
+}

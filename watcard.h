@@ -8,7 +8,6 @@ class WATCard{//Manages the money associated with the card.
 		unsigned int balance;
 	public:
 	WATCard(int balance);//contructor (has a $0 balance)
-	~WATCard();//destructor
 	void debit( unsigned int amount);
 	void credit( unsigned int amount);
 	unsigned int getBalance() const;
