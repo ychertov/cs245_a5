@@ -13,6 +13,7 @@ void PrintDataStore::setData(char st) {
 	assert(!state.first);
 	state.first = true;
 	state.second = st;
+	full = true;
 }
 
 void PrintDataStore::setData(char st, int v1) {
@@ -35,8 +36,12 @@ void PrintDataStore::clear() {
 	state.first = false;
 	value1.first = false;
 	value2.first = false;
+	full = false;
 }
 
+bool PrintDataStore::isFull() {
+	return full;
+}
 std::ostream& operator<<( std::ostream& os, const PrintDataStore& pds ) {
 	if (pds.state.first)
 		os << pds.state.second;

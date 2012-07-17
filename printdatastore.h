@@ -19,7 +19,7 @@ class PrintDataStore {
 		std::pair<bool, char> state;
 		std::pair<bool, int> value1;
 		std::pair<bool, int> value2;
-		
+		bool full;		
 	public:
 		PrintDataStore();
 		PrintDataStore(const PrintDataStore& pds);
@@ -31,6 +31,8 @@ class PrintDataStore {
 		void setData(char st, int v1, int v2);
 		
 		void clear();
+		
+		bool isFull();
 	
     		friend std::ostream &operator<<( std::ostream &os, const PrintDataStore& r );
 
