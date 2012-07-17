@@ -1,15 +1,31 @@
 #ifndef __NAMESERVER_H__
 #define __NAMESERVER_H__
 
+#include <map>
+#include <utility>
 #include "printer.h"
 
 class VendingMachine;
 
 class NameServer {
 	private:
-		VendingMachine** machineList;
+		static const Printer::Kind KIND = Printer::NameServer;
+
+		static const char START = 'S';
+		static const char REGISTER = 'R';
+		static const char NEW_MACHINE = 'N';
+		static const char FINISHED = 'F';
+
 		Printer &prt;
+		
+		VendingMachine** machineList;
+		unsigned int machineListLength;
+
+		std::map<int, int> studentMachine;
+		
 		unsigned int numVendingMachines;
+		unsigned int numStudents;
+			
 		//student machines
 		void distribute();	
 		/*
@@ -22,6 +38,9 @@ class NameServer {
 			calls distribute
 			
 		*/
+
+		~NameServer();
+		
 		void VMregister( VendingMachine *vendingmachine );
 		/*
 			called by vending machines to register themselves	

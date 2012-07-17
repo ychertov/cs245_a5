@@ -7,7 +7,20 @@
 #include "nameserver.h"
 
 class VendingMachine {
-	
+	protected:
+		static const Printer::Kind KIND = Printer::Vending;
+		
+		static const char START = 'S';
+		static const char RELOADING = 'r';
+		static const char DONE_RELOADING = 'R';
+		static const char SODA_BOUGHT = 'B';
+		static const char FINISHED = 'F';
+
+		Printer &prt;
+		unsigned int id;
+		unsigned int sodaCost;
+		unsigned int maxStockPerFlavour;
+		
 	public:
 		enum Status { BUY, STOCK, FUNDS };
 			/*
