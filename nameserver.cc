@@ -1,6 +1,6 @@
 #include "nameserver.h"
 #include <assert.h>
-
+#include "vendingmachine.h"
 //student machines
 void NameServer::distribute() {
 	for (unsigned int i = 0; i < numStudents; i++)

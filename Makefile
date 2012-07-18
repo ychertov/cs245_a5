@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -g -Wall -Wextra -Werror -MMD
-OBJECTS = vendingmachinecardeater.o vendingmachineovercharger.o watcard.o watcardoffice.o student.o nameserver.o bottlingplant.o truck.o driver.o 
+OBJECTS = $(patsubst %.cc,%.o,$(wildcard *.cc))
 DEPENDS = ${OBJECTS:.o=.d}
 EXEC = a5.out
 

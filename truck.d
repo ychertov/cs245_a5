@@ -1,1 +1,1 @@
-truck: printer.h
+truck.o: truck.cc truck.h printer.h nameserver.h bottlingplant.h

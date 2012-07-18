@@ -11,6 +11,6 @@ class WATCard{//Manages the money associated with the card.
 	void debit( unsigned int amount);
 	void credit( unsigned int amount);
 	unsigned int getBalance() const;
-}
+};
 
 #endif //WATCARD_H
