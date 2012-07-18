@@ -6,4 +6,11 @@ enum Flavours {
 	ROCK_ROOT_BEER,
 	JAZZ_LIME
 };
+
+class FlavourInfo {
+	
+	public:
+		static const int FLAVOUR_LENGTH = 4;
+
+}
 #endif

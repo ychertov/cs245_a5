@@ -21,6 +21,8 @@ class VendingMachine {
 		unsigned int sodaCost;
 		unsigned int maxStockPerFlavour;
 		
+		int* inv;
+				
 	public:
 		enum Status { BUY, STOCK, FUNDS };
 			/*
