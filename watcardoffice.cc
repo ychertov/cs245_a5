@@ -1,22 +1,32 @@
 #include "watcardoffice.h"
 #include "watcard.h"
+#include "printer.h"
+#include "PRNG.h"
 
-WATCardOffice::WATCardOffice( Printer &prt ) {
-	this->prt = prt;
-	prt.print(WATCardOffice::KIND, 'S');
+extern PRNG prng;
+static const int CHANCE = 3; //1 in 4 chance (3 = 4 - 1)
+
+WATCardOffice::WATCardOffice( Printer &prt ) : prt(prt) {
+	prt.print(KIND, START);
 }
 
 WATCard *WATCardOffice::create( unsigned int id, unsigned int amount ) {
-	WATcard* w = new WATcard(0);
-	w->id = id;
-	w->amount = amount;
+	prt.print(KIND, CREATING, id, amount);
+	WATCard* w = new WATCard();
+	w->credit(amount);
 	return w;
 }
 
 void WATCardOffice::transfer( unsigned int id, unsigned int amount, WATCard &card) {
-
-	if( prng(3) == 0){//one in 4 chances
-		balance = balance + amount/2;	
-	}
-	else balance = balance + transfer;
+	prt.print(KIND, BEGIN_TRANSFER, id, amount);
+	if( prng(CHANCE) == 0)//one in 4 chances of halfing amount
+		amount/=2;
+		
+	card.credit(amount);
+	prt.print(KIND, END_TRANSFER, id, amount);
 }
+
+WATCardOffice::~WATCardOffice() {
+	prt.print(KIND, FINISH);
+}
+

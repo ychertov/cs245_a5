@@ -7,10 +7,10 @@ class WATCard{//Manages the money associated with the card.
 	private:
 		unsigned int balance;
 	public:
-	WATCard(int balance);//contructor (has a $0 balance)
-	void debit( unsigned int amount);
-	void credit( unsigned int amount);
-	unsigned int getBalance() const;
+		WATCard();//contructor (has a $0 balance)
+		void debit( unsigned int amount);
+		void credit( unsigned int amount);
+		unsigned int getBalance() const;
 };
 
 #endif //WATCARD_H
