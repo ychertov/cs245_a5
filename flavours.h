@@ -12,5 +12,5 @@ class FlavourInfo {
 	public:
 		static const int FLAVOUR_LENGTH = 4;
 
-}
+};
 #endif

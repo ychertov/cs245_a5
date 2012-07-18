@@ -21,7 +21,7 @@ class VendingMachine {
 		unsigned int sodaCost;
 		unsigned int maxStockPerFlavour;
 		
-		int* inv;
+		unsigned int* inv;
 				
 	public:
 		enum Status { BUY, STOCK, FUNDS };
@@ -31,7 +31,7 @@ class VendingMachine {
 					STOCK: out of stock
 					FUNDS: insufficient funds			
 			*/
-		VendingMachine( Printer &prt, NameServer &nameServer, unsigned int id, unsigned int sodaCost, unsigned int maxStockParFlavour );
+		VendingMachine( Printer &prt, NameServer &nameServer, unsigned int id, unsigned int sodaCost, unsigned int maxStockPerFlavour );
 			/*
 				Set stock to 0
 				Register with nameserver

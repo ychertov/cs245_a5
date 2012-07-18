@@ -1,6 +1,7 @@
 #ifndef __VENDINGMACHINEOVERCHARGER_H__
 #define __VENDINGMACHINEOVERCHARGER_H__
 
+#include "vendingmachine.h"
 #include "printer.h"
 #include "nameserver.h"
 
