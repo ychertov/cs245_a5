@@ -4,7 +4,7 @@
 #include "printer.h"
 #include "nameserver.h"
 
-VendingMachine::VendingMachine( Printer &prt, NameServer &nameServer, unsigned int id, unsigned int sodaCost, unsigned int maxStockPerFlavour ) : prt(prt), id(id), sodaCost(sodaCost), maxStockPerFlavour(maxStockPerFlavour) {
+VendingMachine::VendingMachine( Printer &prt, NameServer &nameServer, unsigned int id, unsigned int sodaCost, unsigned int maxStockPerFlavour ) : prt(prt), nameServer(nameServer), id(id), sodaCost(sodaCost), maxStockPerFlavour(maxStockPerFlavour) {
 	this->prt.print(KIND, START, cost());
 	
 	//initilize inventory
