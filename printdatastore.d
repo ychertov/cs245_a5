@@ -1,1 +1,1 @@
-printdatastore: printdatastore.cc printdatastore.h
+printdatastore.o: printdatastore.cc printdatastore.h

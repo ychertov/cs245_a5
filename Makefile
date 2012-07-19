@@ -5,7 +5,7 @@ DEPENDS = ${OBJECTS:.o=.d}
 EXEC = a5.out
 
 ${EXEC} : ${OBJECTS}
-	${CXX} ${CXXFLAGS} $^ -o $@
+	${CXX} ${CXXFLAGS} $^ printer.o -o $@
 
 -include ${DEPENDS}
 

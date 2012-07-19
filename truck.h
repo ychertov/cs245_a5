@@ -1,7 +1,7 @@
 //This is a header file for the Truck class.
 
-#ifndef TRUCK_H
-#define TRUCK_H
+#ifndef _TRUCK_H_
+#define _TRUCK_H_
 
 #include "printer.h"
 #include "nameserver.h"
@@ -23,7 +23,9 @@ class Truck {//moves soda from the bottling plant to the vending machine.
 		BottlingPlant &plant;
 		unsigned int numVendingMachines;
 		unsigned int maxStockPerFlavour;
-	
+		
+		unsigned int getCargoVolume(unsigned int cargo[]);
+		void restock(VendingMachine* vm, unsigned int cargo[]);
 	public:
 		Truck( Printer& prt, NameServer& nameServer, BottlingPlant &plant, unsigned int numVendingMachines, unsigned int maxStockPerFlavour );
 		void action();//defines the truck's behaviour.
