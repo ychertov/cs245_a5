@@ -23,9 +23,11 @@ class Truck {//moves soda from the bottling plant to the vending machine.
 		BottlingPlant &plant;
 		unsigned int numVendingMachines;
 		unsigned int maxStockPerFlavour;
+	
 	public:
 		Truck( Printer& prt, NameServer& nameServer, BottlingPlant &plant, unsigned int numVendingMachines, unsigned int maxStockPerFlavour );
 		void action();//defines the truck's behaviour.
+		~Truck();
 };
 
 #endif //TRUCK_H

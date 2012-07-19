@@ -2,18 +2,53 @@
 
 #include "bottlingplant.h"
 #include "nameserver.h"
+#include "flavours.h"
+#include "PRNG.h"
+#include "truck.h"
 
-static bool DEBUG = true;
+extern PRNG prng;
 
-BottlingPlant::BottlingPlant( Printer &prt, NameServer &nameServer, unsigned int numVendingMachines, unsigned int maxShippedPerFlavour, unsigned int maxStockPerFlavour, unsigned int maxStockPerFlavour, unsigned int timeBetweenShipments ) {
+void BottlingPlant::produce() {
+	int sum;
+	for (int i = 0; i < FlavourInfo::FLAVOUR_LENGTH; i++) {
+		stock[i] = prng(maxShippedPerFlavour + 1);
+		sum += stock[i];
+	}
+	prt.print(KIND, MAKING_SODA, sum);
+}
+
+BottlingPlant::BottlingPlant( Printer &prt, NameServer &nameServer, unsigned int numVendingMachines, unsigned int maxShippedPerFlavour, unsigned int maxStockPerFlavour, unsigned int timeBetweenShipments ) : prt(prt), nameServer(nameServer), numVendingMachines(numVendingMachines), maxShippedPerFlavour(maxShippedPerFlavour), maxStockPerFlavour(maxStockPerFlavour), timeBetweenShipments(timeBetweenShipments) {
+	prt.print(KIND, START);
+	truck = new Truck(prt, nameServer, *this, numVendingMachines, maxShippedPerFlavour);
+	produce();
+	truck->action();
+}
+
+BottlingPlant::~BottlingPlant() {
+	prt.print(KIND, FINISHED);
+	delete truck;
+}
+
+void BottlingPlant::getShipment( unsigned int cargo[] ) {
+	for (int i = 0; i < FlavourInfo::FLAVOUR_LENGTH; i++) {
+		cargo[i] = stock[i];
+		stock[i] = 0;
+	}
+	prt.print(KIND, SHIPMENT_PICKED_UP);
+}
+
+void BottlingPlant::action() {
+	if (prng(5) == 0) {
+		prt.print(KIND, STRIKE);
+		return;
+	}
 	
-}
-
-BottlingPlant::void getShipment( unsigned int cargo[] ) {
-
-}
-
-BottlingPlant::void action() {
+	if (prng(timeBetweenShipments) == 0) {
+		return;
+	}
+	
+	produce();
+	truck->action();
 }
 
 /*

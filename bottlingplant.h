@@ -5,21 +5,36 @@
 #include "printer.h"
 #include "nameserver.h"
 
+class Truck;
+
 class BottlingPlant {//produces random new quantities of each flavour of soda, [0, MaxShippedPerFlavour]
 	private:
-		Printer &prt;
-		NameServer &nameServer;
+		static const Printer::Kind KIND = Printer::BottlingPlant;
+
+		static const char START = 'S';
+		static const char STRIKE = 'X';
+		static const char MAKING_SODA = 'G';
+		static const char SHIPMENT_PICKED_UP = 'P';
+		static const char FINISHED = 'F';
+	
+		Printer& prt;
+		NameServer& nameServer;
+		Truck* truck;
 		
+		int stock[3];
+
 		unsigned int numVendingMachines;
 		unsigned int maxShippedPerFlavour;
 		unsigned int maxStockPerFlavour;
 		unsigned int timeBetweenShipments;
 
+		void produce();
 	public:
 		BottlingPlant( Printer &prt, NameServer &nameServer, unsigned int numVendingMachines, unsigned int maxShippedPerFlavour, unsigned int maxStockPerFlavour, unsigned int timeBetweenShipments );
 
 		void getShipment( unsigned int cargo[] );
 		void action();
+		~BottlingPlant();
 };
 
 #endif //BOTTLINGPLANT
