@@ -1,6 +1,8 @@
 #include "nameserver.h"
 #include <assert.h>
 #include "vendingmachine.h"
+#include <iostream>
+
 //student machines
 void NameServer::distribute() {
 	for (unsigned int i = 0; i < numStudents; i++)
@@ -12,6 +14,7 @@ void NameServer::distribute() {
 
 NameServer::NameServer( Printer &prt, unsigned int numVendingMachines, unsigned int numStudents ) : prt(prt), numVendingMachines(numVendingMachines), numStudents(numStudents) {
 	distribute();
+	machineListLength = 0;
 	machineList = new VendingMachine*[numVendingMachines];
 	this->prt.print(KIND, START);
 /*
@@ -25,7 +28,7 @@ NameServer::~NameServer() {
 }
 
 void NameServer::VMregister( VendingMachine *vendingmachine ) {
-	assert(machineListLength+1 <= numVendingMachines);
+	assert(machineListLength <= numVendingMachines);
 
 	machineList[machineListLength] = vendingmachine;
 	machineListLength++;

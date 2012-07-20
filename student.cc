@@ -5,7 +5,8 @@
 #include "nameserver.h"
 #include "printer.h"
 #include "watcardoffice.h"
-
+#include <iostream>
+ 
 extern PRNG prng;
 
 Student::Student( Printer &prt, NameServer &nameServer, WATCardOffice &cardOffice, unsigned int id, unsigned int maxPurchases ) : prt(prt), nameServer(nameServer), cardOffice(cardOffice), id(id) {
@@ -42,7 +43,6 @@ bool Student::action() {
 		return false;
 
 	VendingMachine::Status buyResult = currentMachine->buy(faveFlave, watcard);
-
 	if (watcard == NULL) {
 		watcard = cardOffice.create(id, 0);
 		cardOffice.transfer(id, 5, *watcard);
@@ -55,6 +55,7 @@ bool Student::action() {
 		case VendingMachine::FUNDS:
 			while (currentMachine->cost() > watcard->getBalance()) {
 				cardOffice.transfer(id, 3, *watcard);
+				std::cout << "vmid:\t" << currentMachine->getId() << "\tCost:\t" << currentMachine->cost() << std::endl;
 			}
 			break;
 		case VendingMachine::STOCK:

@@ -5,7 +5,7 @@
 #include "nameserver.h"
 
 VendingMachine::VendingMachine( Printer &prt, NameServer &nameServer, unsigned int id, unsigned int sodaCost, unsigned int maxStockPerFlavour ) : prt(prt), nameServer(nameServer), id(id), sodaCost(sodaCost), maxStockPerFlavour(maxStockPerFlavour) {
-	this->prt.print(KIND, START, cost());
+	this->prt.print(KIND, id, START, cost());
 	
 	//initilize inventory
 	this->inv = new unsigned int[FlavourInfo::FLAVOUR_LENGTH];
@@ -24,7 +24,7 @@ VendingMachine::VendingMachine( Printer &prt, NameServer &nameServer, unsigned i
 }
 VendingMachine::~VendingMachine() {
 	delete inv;
-	prt.print(KIND, FINISHED);
+	prt.print(KIND, id, FINISHED);
 }
 
 VendingMachine::Status VendingMachine::buy( Flavours flavour, WATCard *&card ) {
@@ -36,7 +36,7 @@ VendingMachine::Status VendingMachine::buy( Flavours flavour, WATCard *&card ) {
 
 	inv[flavour]--;
 	(*card).debit(cost());
-	prt.print(KIND, SODA_BOUGHT, flavour, inv[flavour]);
+	prt.print(KIND, id, SODA_BOUGHT, flavour, inv[flavour]);
 	return BUY;
 /*
 	If the specified soda is unavailable or the student has insufficient funds to purchase the soda, buy returns STOCK
@@ -44,7 +44,7 @@ VendingMachine::Status VendingMachine::buy( Flavours flavour, WATCard *&card ) {
 */
 }
 unsigned int *VendingMachine::inventory() {
-	prt.print(KIND, RELOADING);
+	prt.print(KIND, id, RELOADING);
 	return inv;
 /*
 	return a pointer to an array containing the amount of each kind of soda currently in the vending machine

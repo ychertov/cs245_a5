@@ -2,6 +2,7 @@
 #include "watcard.h"
 #include "printer.h"
 #include "PRNG.h"
+#include <iostream> 
 
 extern PRNG prng;
 static const int CHANCE = 3; //1 in 4 chance (3 = 4 - 1)
@@ -24,6 +25,7 @@ void WATCardOffice::transfer( unsigned int id, unsigned int amount, WATCard &car
 		
 	card.credit(amount);
 	prt.print(KIND, END_TRANSFER, id, amount);
+	std::cout << "End Balance: " << card.getBalance();
 }
 
 WATCardOffice::~WATCardOffice() {
