@@ -6,27 +6,31 @@ TEST_DRIVERS = twatcard.o twatcardoffice.o
 MAIN_DRIVER = driver.o
 DEPENDS = ${OBJECTS:.o=.d} ${TEST_DRIVERS:.o=.d} ${MAIN_DRIVER:.o=.d} 
 
-TWATCARDOFFICE = twatcardoffice
-TWATCARD = twatcard
+TESTS = twatcard twatcardoffice
 MAIN = soda
+EXECS = $(MAIN) $(TESTS)
 
-
-TEST_EXECS = ${TWATCARD} ${TWATCARDOFFICE}
-EXECS = ${MAIN} ${TEST_EXECS}
 .PHONY : all clean tests
 
 all : ${EXECS}
 
-tests : ${TEST_EXECS}
+tests : ${TESTS}
 
 ${MAIN} : driver.o ${OBJECTS} 
 	${CXX} ${CXXFLAGS} $^ printer.o -o $@
 
-${TWATCARD} : twatcard.o ${OBJECTS} 
-	${CXX} ${CXXFLAGS} $^ printer.o -o $@
+define func
+$1: $1.o ${OBJECTS}
+	${CXX} ${CXXFLAGS} $1.o ${OBJECTS} printer.o -o $1
+endef
 
-${TWATCARDOFFICE} : twatcardoffice.o ${OBJECTS}
-	${CXX} ${CXXFLAGS} $^ printer.o -o $@
+$(foreach EXEC,$(TESTS),$(eval $(call func,$(EXEC))))
+
+#${TWATCARD} : twatcard.o ${OBJECTS} 
+#	${CXX} ${CXXFLAGS} $^ printer.o -o $@
+
+#${TWATCARDOFFICE} : twatcardoffice.o ${OBJECTS}
+#	${CXX} ${CXXFLAGS} $^ printer.o -o $@
 
 -include ${DEPENDS}
 
