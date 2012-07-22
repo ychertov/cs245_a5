@@ -1,0 +1,1 @@
+clang  -g -Wall -Wextra -Werror -MMD driver.o bottlingplant.o nameserver.o student.o truck.o vendingmachinecardeater.o vendingmachine.o vendingmachineovercharger.o watcard.o watcardoffice.o printer.o -o soda

@@ -1,5 +1,5 @@
 CXX = g++ 
-CXXFLAGS = -g -Wall -Wextra -Werror -MMD
+CXXFLAGS = -g -Wall -Wextra -Werror -MMD 
 OBJECTS = bottlingplant.o nameserver.o student.o truck.o vendingmachinecardeater.o vendingmachine.o vendingmachineovercharger.o watcard.o watcardoffice.o
 TEST_DRIVERS = twatcard.o twatcardoffice.o
 
@@ -21,7 +21,7 @@ ${MAIN} : driver.o ${OBJECTS}
 
 define func
 $1: $1.o ${OBJECTS}
-	${CXX} ${CXXFLAGS} $1.o ${OBJECTS} printer.o -o $1
+	${CXX} ${CXXFLAGS} -D DEBUG_ON $1.o ${OBJECTS} printer.o -o $1
 endef
 
 $(foreach EXEC,$(TESTS),$(eval $(call func,$(EXEC))))

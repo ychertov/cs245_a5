@@ -8,7 +8,7 @@ using namespace std;
 #include "PRNG.h"
 
 #include "soda.h"					// YOUR INCLUDES GO IN THIS FILE
-
+//#define DEBUG_ON
 PRNG prng( getpid() );					// default seed of random-number generator
 
 

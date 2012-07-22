@@ -1,3 +1,4 @@
+#define DEBUG_ON
 #include <iostream>
 #include <fstream>
 #include <sstream>
