@@ -45,10 +45,14 @@ class Student {//A Student's function is to buy some of their favourite soda fro
 
 		bool action();//the way a students behaviour is defined.
 		/*
-			*FALSE:-->When a student has purchased all the soda initially selected
-			*TRUE:-->If the vending machine delivered a bottle of soda, the student drinks it and returns true.
+			*PRECONDITIONS:
+				-FALSE: -->if purchases remaining is 0
+				-watcard credit of $5 if watcard is NULL
+			*POSTCONDITION:
+				-FALSE:-->When a student has purchased all the soda initially selected
+				-TRUE:-->If the vending machine delivered a bottle of soda, the student drinks it and returns true.
 		*/
-		~Student();
+		~Student();//destructor
 };
 
 #endif
