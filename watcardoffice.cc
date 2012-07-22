@@ -2,6 +2,7 @@
 #include "watcard.h"
 #include "printer.h"
 #include "PRNG.h"
+#include "debug.h"
 #include <iostream> 
 
 extern PRNG prng;
