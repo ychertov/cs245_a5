@@ -1,7 +1,10 @@
+#include "debug.h"
 #include "vendingmachineovercharger.h"
 #include "nameserver.h"
 
-VendingMachineOverCharger::VendingMachineOverCharger( Printer &prt, NameServer &nameServer, unsigned int id, unsigned int sodaCost, unsigned int maxStockPerFlavour ) : VendingMachine(prt, nameServer, id, sodaCost, maxStockPerFlavour) {}
+VendingMachineOverCharger::VendingMachineOverCharger( Printer &prt, NameServer &nameServer, unsigned int id, unsigned int sodaCost, unsigned int maxStockPerFlavour ) : VendingMachine(prt, nameServer, id, sodaCost, maxStockPerFlavour) {
+	DEBUG(std::cout << "Calling Over Charger constructor" << std::endl);
+}
 
 unsigned int VendingMachineOverCharger::cost() {
 	return sodaCost*2;

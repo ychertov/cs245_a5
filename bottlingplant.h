@@ -21,7 +21,7 @@ class BottlingPlant {//produces random new quantities of each flavour of soda, [
 		NameServer& nameServer;
 		Truck* truck;
 		
-		int stock[3];
+		unsigned int stock[3];
 
 		unsigned int numVendingMachines;
 		unsigned int maxShippedPerFlavour;
