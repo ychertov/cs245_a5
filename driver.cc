@@ -134,7 +134,7 @@ int main( int argc, char *argv[] ) {
     VendingMachine *machines[ pm.numVendingMachines ];
     unsigned int vset[ pm.numVendingMachines ];
     shuffle( vset, pm.numVendingMachines );
-
+	std::cout << "soda cost: " << pm.sodaCost << std::endl;
     for ( i = 0; i < pm.numVendingMachines; i += 1 ) {	// randomize vending machines
 	if ( prng( 1 ) == 0 ) {
 	    machines[ vset[ i ] ] = new VendingMachineCardEater( prt, nameServer, vset[ i ], pm.sodaCost, pm.maxStockPerFlavour );
