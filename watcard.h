@@ -10,6 +10,7 @@ class WATCard{//Manages the money associated with the card.
 		WATCard();//contructor --> initially has a $0 balance
 		void debit( unsigned int amount);
 			/*
+			-->Spends money from the WATcard
 				*Preconditions:
 					-balance [0,amount)
 					(otherwise a call to standard error)
@@ -18,6 +19,7 @@ class WATCard{//Manages the money associated with the card.
 			*/
 		void credit( unsigned int amount);
 			/*
+			-->Credits money on the WATcard
 				*Preconditions:
 					-N/A
 				*Postconditions:
@@ -25,6 +27,7 @@ class WATCard{//Manages the money associated with the card.
 			*/
 		unsigned int getBalance() const;
 			/*
+			-->Accessor function that gets the balance of the watcard
 				*Preconditions:
 					-N/A
 				*Postconditions:
