@@ -9,7 +9,7 @@
 extern PRNG prng;
 
 void BottlingPlant::produce() {
-	int sum;
+	unsigned int sum = 0;
 	for (int i = 0; i < FlavourInfo::FLAVOUR_LENGTH; i++) {
 		stock[i] = prng(maxShippedPerFlavour + 1);
 		sum += stock[i];

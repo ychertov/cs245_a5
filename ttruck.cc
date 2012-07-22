@@ -127,12 +127,12 @@ int main( int argc, char *argv[] ) {
         DEBUG(std::cout << "***Test1 getCargoVolume:"<< std::endl);
         DEBUG(std::cout << "\tInput\t" << "[1,1,1]" << std::endl);
 	DEBUG(std::cout << "\tExpected Output\t" << "3" << std::endl);
-	DEBUG(std::cout << "\tActual Output\t" << tTruck.getCargoVolume([1,1,1]) << std::endl);
+	DEBUG(std::cout << "\tActual Output\t" << tTruck.getCargoVolume([1,1,1,1]) << std::endl);
 
 	DEBUG(std::cout << "***Test2 getCargoVolume:"<< std::endl);
         DEBUG(std::cout << "\tInput\t" << "[0]" << std::endl);
 	DEBUG(std::cout << "\tExpected Output\t" << "0" << std::endl);
-	DEBUG(std::cout << "\tActual Output\t" << tTruck.getCargoVolume([0]) << std::endl);
+	DEBUG(std::cout << "\tActual Output\t" << tTruck.getCargoVolume([]) << std::endl);
 	
 	DEBUG(std::cout << "***Test3 restock: (DEBUG flags within the function)"<< std::endl);	
 }
