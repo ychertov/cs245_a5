@@ -1,12 +1,12 @@
 CXX = g++ 
 CXXFLAGS = -g -Wall -Wextra -Werror -MMD 
 OBJECTS = bottlingplant.o nameserver.o student.o truck.o vendingmachinecardeater.o vendingmachine.o vendingmachineovercharger.o watcard.o watcardoffice.o
-TEST_DRIVERS = twatcard.o twatcardoffice.o
+TEST_DRIVERS = twatcard.o twatcardoffice.o ttruck.o
 
 MAIN_DRIVER = driver.o
 DEPENDS = ${OBJECTS:.o=.d} ${TEST_DRIVERS:.o=.d} ${MAIN_DRIVER:.o=.d} 
 
-TESTS = twatcard twatcardoffice
+TESTS = twatcard twatcardoffice ttruck
 MAIN = soda
 EXECS = $(MAIN) $(TESTS)
 

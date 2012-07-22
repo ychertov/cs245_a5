@@ -1,6 +1,7 @@
 #include "truck.h"
 #include "flavours.h"
 #include "vendingmachine.h"
+#include "debug.h"
 Truck::Truck( Printer &prt, NameServer &nameServer, BottlingPlant &plant, unsigned int numVendingMachines, unsigned int maxStockPerFlavour ) : prt(prt), nameServer(nameServer), plant(plant), numVendingMachines(numVendingMachines), maxStockPerFlavour(maxStockPerFlavour) {
 	prt.print(KIND, START);
 }
@@ -17,9 +18,12 @@ void Truck::restock(VendingMachine* vm, unsigned int cargo[]) {
 	unsigned int* inv = vm->inventory();
 
 	for (int i = 0; i < FlavourInfo::FLAVOUR_LENGTH; i++) {
+		DEBUG(std::cout << "*****Value of i:\t" << i << std::endl);
+		DEBUG(std::cout << "\tValue of FLAVOUR_LENGTH:\t" << FlavourInfo::FLAVOUR_LENGTH << std::endl);
 		if ((cargo[i] + inv[i]) <= maxStockPerFlavour) {
 			inv[i] += cargo[i];
 			cargo[i] = 0;
+		DEBUG(std::cout << "\tcargo at index-->\t[" << i << "] has been restocked and reset to 0" << std::endl);
 		} else {
 			int amountAdded = maxStockPerFlavour - inv[i];
 			inv[i] = maxStockPerFlavour;

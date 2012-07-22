@@ -4,6 +4,7 @@
 #include <vector>
 #include <limits>					// numeric_limits
 #include <cstdlib>					// exit
+#include <debug.h>
 using namespace std;
 #include "PRNG.h"
 
@@ -113,7 +114,10 @@ int main( int argc, char *argv[] ) {
     Printer prt( pm.numStudents, pm.numVendingMachines );
 	
 	//Begin Test for Truck
+t
 	Truck tTruck(prt, nameServer, plant, numVendingMachines, maxStockPerFlavour);
+	VendingMachine tVendingMachine;
+
         std::cout << "Created a Testing Truck" << std::endl;
         std::cout << "***Test1 getCargoVolume:"<< std::endl;
         std::cout << "\tInput\t" << "[1,1,1]" << std::endl;
@@ -125,6 +129,7 @@ int main( int argc, char *argv[] ) {
 	std::cout << "\tExpected Output\t" << "0" << std::endl;
 	std::cout << "\tActual Output\t" << tTruck.getCargoVolume([0]) << std::endl;
 	
+	std::cout << "***Test3 restock: (DEBUG flags within the function)"<< std::endl;	
 				
 	
 	        WATCard* card = office.create(5, 7);
