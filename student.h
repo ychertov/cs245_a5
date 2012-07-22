@@ -12,6 +12,16 @@
 
 class Student {//A Student's function is to buy some of their favourite soda from a vending machine.
 	private:
+		static const Printer::Kind KIND = Printer::Student;
+
+		static const char START = 'S';
+		static const char SELECTING_VENDING = 'V';
+		static const char START_FUNDS_TRANSFER = 't';
+		static const char END_FUNDS_TRANSFER = 'T';
+		static const char BOUGHT = 'B';
+		static const char WATCARD_DESTROYED = 'D';
+		static const char FINISH = 'F';
+
 		Printer& prt;
 		NameServer& nameServer;
 		WATCardOffice& cardOffice;
@@ -20,7 +30,8 @@ class Student {//A Student's function is to buy some of their favourite soda fro
 		Flavours faveFlave;
 		WATCard* watcard;
 		VendingMachine* currentMachine;
-	
+		void refreshMachine();
+		void makeTransfer(unsigned int amount);	
 	public:
 		Student( Printer &prt, NameServer &nameServer, WATCardOffice &cardOffice, unsigned int id, unsigned int maxPurchases );
 		/*
@@ -37,6 +48,7 @@ class Student {//A Student's function is to buy some of their favourite soda fro
 			*FALSE:-->When a student has purchased all the soda initially selected
 			*TRUE:-->If the vending machine delivered a bottle of soda, the student drinks it and returns true.
 		*/
+		~Student();
 };
 
 #endif

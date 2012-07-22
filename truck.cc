@@ -26,13 +26,13 @@ void Truck::restock(VendingMachine* vm, unsigned int cargo[]) {
 			cargo[i] = 0;
 		DEBUG(std::cout << "\tcargo at index-->\t[" << i << "] has been restocked and reset to 0" << std::endl);
 		} else {
-			int amountAdded = maxStockPerFlavour - inv[i];
+			unsigned int amountAdded = maxStockPerFlavour - inv[i];
 			inv[i] = maxStockPerFlavour;
 			cargo[i] -= amountAdded;
 		}
 	}
 
-	int totalUnfilled = 0;
+	unsigned int totalUnfilled = 0;
 	for (int i = 0; i < FlavourInfo::FLAVOUR_LENGTH; i++)
 		totalUnfilled += maxStockPerFlavour - inv[i];
 

@@ -41,7 +41,7 @@ void NameServer::VMregister( VendingMachine *vendingmachine ) {
 VendingMachine *NameServer::getMachine( unsigned int id ) {
 	studentMachine[id] = (studentMachine[id] + 1) % numVendingMachines; //set student next machine
 	VendingMachine* machine = machineList[studentMachine[id]]; //return the new machine for the student
-	this->prt.print(KIND, NEW_MACHINE, machine->getId());
+	this->prt.print(KIND, NEW_MACHINE, id, machine->getId());
 	return machine;
 }
 

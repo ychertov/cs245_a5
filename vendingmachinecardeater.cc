@@ -11,7 +11,9 @@ VendingMachineCardEater::VendingMachineCardEater( Printer &prt, NameServer &name
 
 VendingMachine::Status VendingMachineCardEater::buy( Flavours flavour, WATCard *&card ) {
 	Status result = VendingMachine::buy(flavour, card); 
-	if (result == BUY && (prng( CHANCE ) == 1) ) //if result is buy and machine decides to eat card
+	if (result == BUY && (prng( CHANCE ) == 0) ) {//if result is buy and machine decides to eat card
+		delete card; 	
 		card = NULL;
+	}
 	return result;
 }

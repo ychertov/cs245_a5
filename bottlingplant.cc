@@ -11,7 +11,7 @@ extern PRNG prng;
 void BottlingPlant::produce() {
 	unsigned int sum = 0;
 	for (int i = 0; i < FlavourInfo::FLAVOUR_LENGTH; i++) {
-		stock[i] = prng(maxShippedPerFlavour + 1);
+		stock[i] = prng(maxShippedPerFlavour);
 		sum += stock[i];
 	}
 	prt.print(KIND, MAKING_SODA, sum);
@@ -38,16 +38,16 @@ void BottlingPlant::getShipment( unsigned int cargo[] ) {
 }
 
 void BottlingPlant::action() {
-	if (prng(5) == 0) {
+	if (prng(4) == 0) {
 		prt.print(KIND, STRIKE);
 		return;
 	}
 	
-	if (prng(timeBetweenShipments) == 0) {
+	if (prng(timeBetweenShipments-1) == 0) {
 		return;
 	}
 	
-	produce();
+	produce();	
 	truck->action();
 }
 
