@@ -137,37 +137,12 @@ int main( int argc, char *argv[] ) {
     
     for ( i = 0; i < pm.numVendingMachines; i += 1 ) {	// randomize vending machines
 	if ( prng( 1 ) == 0 ) {
+	std::cout << "Making Card Eater " << std::endl;
 	    machines[ vset[ i ] ] = new VendingMachineCardEater( prt, nameServer, vset[ i ], pm.sodaCost, pm.maxStockPerFlavour );
 	} else {
+	std::cout << "Making Over Charger " << std::endl;
 	    machines[ vset[ i ] ] = new VendingMachineOverCharger( prt, nameServer, vset[ i ], pm.sodaCost, pm.maxStockPerFlavour );
 	} // if
     } // for
 
-    BottlingPlant plant( prt, nameServer, pm.numVendingMachines, pm.maxShippedPerFlavour, pm.maxStockPerFlavour, pm.timeBetweenShipments );
-
-    vector<Student *> students( pm.numStudents );	// variable-size array
-    unsigned int sset[ pm.numStudents ];
-    shuffle( sset, pm.numStudents );
-
-    for ( i = 0; i < pm.numStudents; i += 1 ) {		// randomize students
-	students[ sset[ i ] ] = new Student( prt, nameServer, office, sset[ i ], pm.maxPurchases );
-    } // for
-
-    for ( ; students.size() != 0; ) {			// students finished ?
-	unsigned int stud = prng( students.size() - 1 ); // select a random student
-	if ( ! students[ stud ]->action() ) {		// invoke student, student finished ?
-	    delete students[ stud ];			// delete student
-	    students.erase( students.begin() + stud );	// remove entry from vector
-	} // if
-	if ( students.size() != 0 ) plant.action();	// don't call plant if no students 
-    } // for
-    
-    shuffle( vset, pm.numVendingMachines );		// randomize vending machines (again)
-    for ( i = 0; i < pm.numVendingMachines; i += 1 ) {	// delete in random order
-	delete machines[ vset[ i ] ];
-    } // for
-} // main
-
-// Local Variables: //
-// compile-command: "make" //
-// End: //
+}

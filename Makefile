@@ -1,7 +1,11 @@
 CXX = g++ 
 CXXFLAGS = -g -Wall -Wextra -Werror -MMD 
 OBJECTS = bottlingplant.o nameserver.o student.o truck.o vendingmachinecardeater.o vendingmachine.o vendingmachineovercharger.o watcard.o watcardoffice.o
+<<<<<<< HEAD
 TEST_DRIVERS = twatcard.o twatcardoffice.o ttruck.o
+=======
+TEST_DRIVERS = twatcard.o twatcardoffice.o tvendingmachine.o
+>>>>>>> 8dcac9f0bb80a16d6fa077b6bf3a637a956b3be9
 
 MAIN_DRIVER = driver.o
 DEPENDS = ${OBJECTS:.o=.d} ${TEST_DRIVERS:.o=.d} ${MAIN_DRIVER:.o=.d} 
