@@ -32,6 +32,7 @@ Student::Student( Printer &prt, NameServer &nameServer, WATCardOffice &cardOffic
 			break;
 	}
 	prt.print(KIND, id, START, faveFlave, purchasesRemaining);
+	watcard = cardOffice.create(id, 5);
 	refreshMachine();
 	/*
 		**STUDENT CONTRUCTOR SPECIFICATIONS**
