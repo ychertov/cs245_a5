@@ -4,10 +4,10 @@
 #include <vector>
 #include <limits>					// numeric_limits
 #include <cstdlib>					// exit
-#include <debug.h>
+
 using namespace std;
 #include "PRNG.h"
-
+#include "debug.h"
 #include "soda.h"					// YOUR INCLUDES GO IN THIS FILE
 
 PRNG prng( getpid() );					// default seed of random-number generator
@@ -112,39 +112,35 @@ int main( int argc, char *argv[] ) {
 
     processConfigFile( configFile, pm );		// process configuration file
     Printer prt( pm.numStudents, pm.numVendingMachines );
+    NameServer nameServer( prt, pm.numVendingMachines, pm.numStudents ); // manages vending machine names
 	
 	//Begin Test for Truck
-t
-	Truck tTruck(prt, nameServer, plant, numVendingMachines, maxStockPerFlavour);
-	VendingMachine tVendingMachine;
-
-        std::cout << "Created a Testing Truck" << std::endl;
-        std::cout << "***Test1 getCargoVolume:"<< std::endl;
-        std::cout << "\tInput\t" << "[1,1,1]" << std::endl;
-	std::cout << "\tExpected Output\t" << "3" << std::endl;
-	std::cout << "\tActual Output\t" << tTruck.getCargoVolume([1,1,1]) << std::endl;
-
-	std::cout << "***Test2 getCargoVolume:"<< std::endl;
-        std::cout << "\tInput\t" << "[0]" << std::endl;
-	std::cout << "\tExpected Output\t" << "0" << std::endl;
-	std::cout << "\tActual Output\t" << tTruck.getCargoVolume([0]) << std::endl;
+	 BottlingPlant plant( prt, nameServer, pm.numVendingMachines, pm.maxShippedPerFlavour, pm.maxStockPerFlavour, pm.timeBetweenShipments );
 	
-	std::cout << "***Test3 restock: (DEBUG flags within the function)"<< std::endl;	
-				
+	int tId = 1;
 	
-	        WATCard* card = office.create(5, 7);
-        std::cout << "Balance:\t" << card->getBalance() << std::endl;
-        WATCard& cardRef = *card;
-        std::cout << "Tranferring money to id 5, amount 3" << std::endl;
-        for (int i = 0; i < 10; i++) {
-                office.transfer(5, 3, cardRef);
-                std::cout << "\tBalance:\t" << card->getBalance() << std::endl;
-        }
-}//Testing for truck.cc
+	Truck tTruck(prt, nameServer, plant, pm.numVendingMachines, pm.maxStockPerFlavour);
+
+	VendingMachine(prt, nameServer, tId, pm.sodaCost, pm.maxStockPerFlavour );
+		
+        DEBUG(std::cout << "Created a Testing Truck" << std::endl);
+        DEBUG(std::cout << "***Test1 getCargoVolume:"<< std::endl);
+        DEBUG(std::cout << "\tInput\t" << "[1,1,1]" << std::endl);
+	DEBUG(std::cout << "\tExpected Output\t" << "3" << std::endl);
+	DEBUG(std::cout << "\tActual Output\t" << tTruck.getCargoVolume([1,1,1]) << std::endl);
+
+	DEBUG(std::cout << "***Test2 getCargoVolume:"<< std::endl);
+        DEBUG(std::cout << "\tInput\t" << "[0]" << std::endl);
+	DEBUG(std::cout << "\tExpected Output\t" << "0" << std::endl);
+	DEBUG(std::cout << "\tActual Output\t" << tTruck.getCargoVolume([0]) << std::endl);
+	
+	DEBUG(std::cout << "***Test3 restock: (DEBUG flags within the function)"<< std::endl);	
+}
+//Testing for truck.cc
 	//getCargoVolume function
 
 /*
 	Truck myTruck();//add params
 
 	cout<< "\n*-->getCargoVolume test1*\nInput [1,1,1]\nExpected output = 3\nActual output = " << myTruck.getCargoVolume([1,1,1])<< endl;
-	cout<< "\n*-->getCargoVolume test2*\nInput [0]\nExpected output = 0\nActual output = " << myTruck.getCargoVolume([0]) << endl;
+	cout<< "\n*-->getCargoVolume test2*\nInput [0]\nExpected output = 0\nActual output = " << myTruck.getCargoVolume([0]) << endl;*/
