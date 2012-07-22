@@ -8,13 +8,6 @@
 extern PRNG prng;
 static const int CHANCE = 3; //1 in 4 chance (3 = 4 - 1)
 
-//debugging
-#ifdef DEBUG_ON
-#define DEBUG(x) (x)
-#else
-#define DEBUG(x) ((void)0)
-#endif
-
 WATCardOffice::WATCardOffice( Printer &prt ) : prt(prt) {
 	prt.print(KIND, START);
 }
