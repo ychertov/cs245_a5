@@ -10,10 +10,24 @@ class VendingMachineOverCharger : public VendingMachine {
 		unsigned int sodaCost;	
 	public:
 		VendingMachineOverCharger( Printer &prt, NameServer &nameServer, unsigned int id, unsigned int sodaCost, unsigned int maxStockPerFlavour );
-
-		unsigned int cost();
 		/*
-			returns 2x the cost of the soda
+			*PRECONDITIONS:
+				-Printer
+				-NameServer
+				-id
+				-sodaCost
+				-maxStockPerFlavour
+
+			*POSTCONTITIONS:
+				-N/A
+		*/
+		
+		unsigned int cost();
+		/*	
+			*PRECONDITIONS:
+				-N/A
+			*POSCONDITIONS:
+				-returns 2x the cost of the soda
 		*/
 };
 #endif

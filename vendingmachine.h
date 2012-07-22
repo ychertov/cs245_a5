@@ -10,7 +10,7 @@ class VendingMachine {
 	protected:
 		static const Printer::Kind KIND = Printer::Vending;
 		
-		static const char START = 'S';
+		static const char START = 'S';//State variables
 		static const char RELOADING = 'r';
 		static const char DONE_RELOADING = 'R';
 		static const char SODA_BOUGHT = 'B';

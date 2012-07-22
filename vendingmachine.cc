@@ -6,13 +6,17 @@
 #include "debug.h"
 
 VendingMachine::VendingMachine( Printer &prt, NameServer &nameServer, unsigned int id, unsigned int sodaCost, unsigned int maxStockPerFlavour ) : prt(prt), nameServer(nameServer), id(id), sodaCost(sodaCost), maxStockPerFlavour(maxStockPerFlavour) {
+	/*
+		Contructor for VendingMachine
+	*/
+
 	DEBUG(std::cout << "cost method: " << cost() << std::endl);
 	DEBUG(std::cout << "cost variable: " << sodaCost << std::endl);
 	this->prt.print(KIND, id, START, cost());
 	
 	//initilize inventory
-	this->inv = new unsigned int[FlavourInfo::FLAVOUR_LENGTH];
-	this->inv[BLUES_BLACK_CHERRY] = 0;
+	this->inv = new unsigned int[FlavourInfo::FLAVOUR_LENGTH];//# of different flavours
+	this->inv[BLUES_BLACK_CHERRY] = 0; //all the flavours initialize to 0.
 	this->inv[CLASSICAL_CREAM_SODA] = 0;
 	this->inv[ROCK_ROOT_BEER] = 0;
 	this->inv[JAZZ_LIME] = 0;
@@ -25,9 +29,9 @@ VendingMachine::VendingMachine( Printer &prt, NameServer &nameServer, unsigned i
 	egister with nameserver
 */
 }
-VendingMachine::~VendingMachine() {
+VendingMachine::~VendingMachine() {//destructor
 	delete inv;
-	prt.print(KIND, id, FINISHED);
+	prt.print(KIND, id, FINISHED);//update status
 }
 
 VendingMachine::Status VendingMachine::buy( Flavours flavour, WATCard *&card ) {
