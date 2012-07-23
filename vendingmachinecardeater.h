@@ -34,5 +34,7 @@ class VendingMachineCardEater : public VendingMachine {
 			*POSTCONDITIONS:
 				-1/10 Chance that the students WATcard will be set to NULL
 		*/
+		unsigned int cost();
+		
 };
 #endif

@@ -19,7 +19,7 @@ void BottlingPlant::produce() {
 
 BottlingPlant::BottlingPlant( Printer &prt, NameServer &nameServer, unsigned int numVendingMachines, unsigned int maxShippedPerFlavour, unsigned int maxStockPerFlavour, unsigned int timeBetweenShipments ) : prt(prt), nameServer(nameServer), numVendingMachines(numVendingMachines), maxShippedPerFlavour(maxShippedPerFlavour), maxStockPerFlavour(maxStockPerFlavour), timeBetweenShipments(timeBetweenShipments) {
 	prt.print(KIND, START);
-	truck = new Truck(prt, nameServer, *this, numVendingMachines, maxShippedPerFlavour);
+	truck = new Truck(prt, nameServer, *this, numVendingMachines, maxStockPerFlavour);
 	produce();
 	truck->action();
 }
