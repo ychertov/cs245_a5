@@ -16,7 +16,7 @@ class VendingMachine {
 		static const char SODA_BOUGHT = 'B';
 		static const char FINISHED = 'F';
 
-		Printer &prt;
+		Printer& prt;
 		NameServer& nameServer;
 		unsigned int id;
 		unsigned int sodaCost;
