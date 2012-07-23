@@ -11,7 +11,7 @@ class Truck {//moves soda from the bottling plant to the vending machine.
 	private:
 		static const Printer::Kind KIND = Printer::Truck;
 
-		static const char START = 'S';
+		static const char START = 'S';//states
 		static const char PICKED_UP_SHIPMENT = 'P';
 		static const char BEGIN_DELIVERY = 'd';
 		static const char UNSUCCESS_FILLING = 'U';
@@ -28,8 +28,12 @@ class Truck {//moves soda from the bottling plant to the vending machine.
 		void restock(VendingMachine* vm, unsigned int cargo[]);
 	public:
 		Truck( Printer& prt, NameServer& nameServer, BottlingPlant &plant, unsigned int numVendingMachines, unsigned int maxStockPerFlavour );
-		void action();//defines the truck's behaviour.
-		~Truck();
+		void action();
+		/*	-->defines the truck's behaviour
+			Preconditions:N/A
+			Postconditions:N/A
+		*/
+		~Truck();//destructor
 };
 
 #endif //TRUCK_H

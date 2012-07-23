@@ -27,6 +27,7 @@ class VendingMachineCardEater : public VendingMachine {
 		*/
 		VendingMachine::Status buy( Flavours flavour, WATCard *&card );
 		/*
+			-->Buys a pop
 			*PPRECONDITIONS:
 				- Flavour
 				- card (this WATCard cannot be NULL)

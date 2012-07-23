@@ -11,7 +11,7 @@ class BottlingPlant {//produces random new quantities of each flavour of soda, [
 	private:
 		static const Printer::Kind KIND = Printer::BottlingPlant;
 
-		static const char START = 'S';
+		static const char START = 'S';//states
 		static const char STRIKE = 'X';
 		static const char MAKING_SODA = 'G';
 		static const char SHIPMENT_PICKED_UP = 'P';
@@ -29,12 +29,44 @@ class BottlingPlant {//produces random new quantities of each flavour of soda, [
 		unsigned int timeBetweenShipments;
 
 		void produce();
+		/*
+			-->stocks the bottles (random ammount)and prints to the print function
+			*PRECONDITIONS:
+				->N/A
+			*POSTCONDITIONS:
+				->N/A
+		*/
 	public:
 		BottlingPlant( Printer &prt, NameServer &nameServer, unsigned int numVendingMachines, unsigned int maxShippedPerFlavour, unsigned int maxStockPerFlavour, unsigned int timeBetweenShipments );
-
+		/*
+			-->Constructor
+			*PRECONDITIONS:
+				->N/A
+			*POSTCONDITIONS
+				->N/A
+		*/
 		void getShipment( unsigned int cargo[] );
+		/*
+			-->Gets the shipment from the plant and then copied into the cargo array
+			*PRECONDITIONS:
+				->Cargo must be an array of length 4 (the # of flavours)
+			*POSTCONDITIONS:
+				->N/A
+		*/
 		void action();
+		/*
+			-->Defines the bottleling plants behaviour:
+				* 1/5 chance it will be on strike
+				* 1/(Time between shipment chance)
+			*PRECONDITIONS:
+				->timeBetweenShipments [1, INT_MAX)
+			*POSTCONDITIONS:
+				->N/A
+		*/
 		~BottlingPlant();
+		/*
+			Destructor
+		*/
 };
 
 #endif //BOTTLINGPLANT

@@ -19,17 +19,25 @@ class WATCardOffice {//used by a student to create a WATCARD with an initial dep
 	public:
 		WATCardOffice( Printer &prt );
 			/*
-				constructor
+				-->constructor
+				*preconditions: N/A
+				*postconditions: N/A
 			*/
 
 		WATCard *create( unsigned int id, unsigned int amount );
 			/*
-				Creates a new WATcard object
+				-->Creates a new WATcard object
+				*Preconditions: N/A
+				*Postconditions: N/A
 			*/
 
 		void transfer( unsigned int id, unsigned int amount, WATCard &card);
 			/*
-				Transfers $ from one the WATcard office to the WatCard
+				-->Transfers $ from one the WATcard office to the WatCard
+				*Preconditions:
+				-->The Watcard cannot be NULL.
+				*Postconditions:
+				-->There's a 1/4 chance of halfing the amount.
 			*/
 		~WATCardOffice();
 			/*
