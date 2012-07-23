@@ -21,7 +21,7 @@ class NameServer {
 		VendingMachine** machineList;
 		unsigned int machineListLength;
 
-		std::map<int, int> studentMachine;
+		std::map<unsigned int, unsigned int> studentMachine;
 		
 		unsigned int numVendingMachines;
 		unsigned int numStudents;

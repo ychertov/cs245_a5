@@ -1,67 +1,417 @@
 WATOff	Names	Truck	Plant	Stud0	Stud1	Stud2	Mach0	Mach1
 *******	*******	*******	*******	*******	*******	*******	*******	*******
-S	S						S1
+Calling Constructor
+student 0 assigned to machine index 0
+student 1 assigned to machine index 1
+student 2 assigned to machine index 0
+machine index 0 is machine id 0
+S	S						S2
+machine index 1 is machine id 1
 	R0							S1
 	R1	S	S
 			G19
 		P19	P
+Filling up machine 0
+MaxStockPerFlaver is 10
+Cargo of Flav 0 is 1
+Cargo of Flav 1 is 6
+Cargo of Flav 2 is 8
+Cargo of Flav 3 is 4
+Cargo Size: 19
+Inventory of Flav 0 is 0
+Inventory of Flav 1 is 0
+Inventory of Flav 2 is 0
+Inventory of Flav 3 is 0
 		d0,19					r
 		U0,21
+finished filling machine 0
+Cargo of Flav 0 is 0
+Cargo of Flav 1 is 0
+Cargo of Flav 2 is 0
+Cargo of Flav 3 is 0
+Cargo Size: 0
+Inventory of Flav 0 is 1
+Inventory of Flav 1 is 6
+Inventory of Flav 2 is 8
+Inventory of Flav 3 is 4
 		D0,0					R
+Filling up machine 1
+MaxStockPerFlaver is 10
+Cargo of Flav 0 is 0
+Cargo of Flav 1 is 0
+Cargo of Flav 2 is 0
+Cargo of Flav 3 is 0
+Cargo Size: 0
+Inventory of Flav 0 is 0
+Inventory of Flav 1 is 0
+Inventory of Flav 2 is 0
+Inventory of Flav 3 is 0
 		d1,0						r
 		U1,40
+finished filling machine 1
+Cargo of Flav 0 is 0
+Cargo of Flav 1 is 0
+Cargo of Flav 2 is 0
+Cargo of Flav 3 is 0
+Cargo Size: 0
+Inventory of Flav 0 is 0
+Inventory of Flav 1 is 0
+Inventory of Flav 2 is 0
+Inventory of Flav 3 is 0
+Creding Watcard id: 1 amount: 5
 C1,5	N1,0	D1,0			S3,3		R
+Creding Watcard id: 0 amount: 5
 C0,5	N0,1			S2,7	V0
+Creding Watcard id: 2 amount: 5
 C2,5	N2,1			V1		S0,0
 			G28			V1
 		P28	P
+Filling up machine 0
+MaxStockPerFlaver is 10
+Cargo of Flav 0 is 10
+Cargo of Flav 1 is 5
+Cargo of Flav 2 is 5
+Cargo of Flav 3 is 8
+Cargo Size: 28
+Inventory of Flav 0 is 1
+Inventory of Flav 1 is 6
+Inventory of Flav 2 is 8
+Inventory of Flav 3 is 4
 		d0,28					r
+finished filling machine 0
+Cargo of Flav 0 is 1
+Cargo of Flav 1 is 1
+Cargo of Flav 2 is 3
+Cargo of Flav 3 is 2
+Cargo Size: 7
+Inventory of Flav 0 is 10
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 10
+Inventory of Flav 3 is 10
 		D0,7					R
+Filling up machine 1
+MaxStockPerFlaver is 10
+Cargo of Flav 0 is 1
+Cargo of Flav 1 is 1
+Cargo of Flav 2 is 3
+Cargo of Flav 3 is 2
+Cargo Size: 7
+Inventory of Flav 0 is 0
+Inventory of Flav 1 is 0
+Inventory of Flav 2 is 0
+Inventory of Flav 3 is 0
 		d1,7						r
 		U1,33
+finished filling machine 1
+Cargo of Flav 0 is 0
+Cargo of Flav 1 is 0
+Cargo of Flav 2 is 0
+Cargo of Flav 3 is 0
+Cargo Size: 0
+Inventory of Flav 0 is 1
+Inventory of Flav 1 is 1
+Inventory of Flav 2 is 3
+Inventory of Flav 3 is 2
 		D1,0	X	B4			R	B2,2
-			G22		B5		B3,9
+			G22		B3		B3,9
 		P22	P
+Filling up machine 0
+MaxStockPerFlaver is 10
+Cargo of Flav 0 is 8
+Cargo of Flav 1 is 3
+Cargo of Flav 2 is 9
+Cargo of Flav 3 is 2
+Cargo Size: 22
+Inventory of Flav 0 is 10
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 10
+Inventory of Flav 3 is 9
 		d0,22					r
+finished filling machine 0
+Cargo of Flav 0 is 8
+Cargo of Flav 1 is 3
+Cargo of Flav 2 is 9
+Cargo of Flav 3 is 1
+Cargo Size: 21
+Inventory of Flav 0 is 10
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 10
+Inventory of Flav 3 is 10
 		D0,21					R
+Filling up machine 1
+MaxStockPerFlaver is 10
+Cargo of Flav 0 is 8
+Cargo of Flav 1 is 3
+Cargo of Flav 2 is 9
+Cargo of Flav 3 is 1
+Cargo Size: 21
+Inventory of Flav 0 is 1
+Inventory of Flav 1 is 1
+Inventory of Flav 2 is 2
+Inventory of Flav 3 is 2
 		d1,21						r
 		U1,14
+finished filling machine 1
+Cargo of Flav 0 is 0
+Cargo of Flav 1 is 0
+Cargo of Flav 2 is 1
+Cargo of Flav 3 is 0
+Cargo Size: 1
+Inventory of Flav 0 is 9
+Inventory of Flav 1 is 4
+Inventory of Flav 2 is 10
+Inventory of Flav 3 is 3
 		D1,1					R
-			X		B5		B3,9
-			G15		B5		B3,8
-		P15	P
-		d0,15					r
-		U0,2
+			X		B1		B3,9
+not halving the money
+t1,3					t3
+End Balance: 4T1,3			G16		T4
+		P16	P
+Filling up machine 0
+MaxStockPerFlaver is 10
+Cargo of Flav 0 is 0
+Cargo of Flav 1 is 10
+Cargo of Flav 2 is 0
+Cargo of Flav 3 is 6
+Cargo Size: 16
+Inventory of Flav 0 is 10
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 10
+Inventory of Flav 3 is 9
+		d0,16					r
+finished filling machine 0
+Cargo of Flav 0 is 0
+Cargo of Flav 1 is 10
+Cargo of Flav 2 is 0
+Cargo of Flav 3 is 5
+Cargo Size: 15
+Inventory of Flav 0 is 10
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 10
+Inventory of Flav 3 is 10
 		D0,15					R
+Filling up machine 1
+MaxStockPerFlaver is 10
+Cargo of Flav 0 is 0
+Cargo of Flav 1 is 10
+Cargo of Flav 2 is 0
+Cargo of Flav 3 is 5
+Cargo Size: 15
+Inventory of Flav 0 is 9
+Inventory of Flav 1 is 4
+Inventory of Flav 2 is 10
+Inventory of Flav 3 is 3
 		d1,15						r
-		U1,13
-		D1,14	X	B3			R	B2,9
+		U1,3
+finished filling machine 1
+Cargo of Flav 0 is 0
+Cargo of Flav 1 is 4
+Cargo of Flav 2 is 0
+Cargo of Flav 3 is 0
+Cargo Size: 4
+Inventory of Flav 0 is 9
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 10
+Inventory of Flav 3 is 8
+		D1,4					R
+			X	B3	B2		B3,9	B2,9
 			X	B2				B2,8
-			G10	B1				B2,7
+			G10
 		P10	P
+Filling up machine 0
+MaxStockPerFlaver is 10
+Cargo of Flav 0 is 2
+Cargo of Flav 1 is 0
+Cargo of Flav 2 is 0
+Cargo of Flav 3 is 8
+Cargo Size: 10
+Inventory of Flav 0 is 10
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 10
+Inventory of Flav 3 is 9
 		d0,10					r
-		D0,8					R
-		d1,8						r
-		U1,10
-		D1,2	G19	B0			R	B2,6
+finished filling machine 0
+Cargo of Flav 0 is 2
+Cargo of Flav 1 is 0
+Cargo of Flav 2 is 0
+Cargo of Flav 3 is 7
+Cargo Size: 9
+Inventory of Flav 0 is 10
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 10
+Inventory of Flav 3 is 10
+		D0,9					R
+Filling up machine 1
+MaxStockPerFlaver is 10
+Cargo of Flav 0 is 2
+Cargo of Flav 1 is 0
+Cargo of Flav 2 is 0
+Cargo of Flav 3 is 7
+Cargo Size: 9
+Inventory of Flav 0 is 9
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 8
+Inventory of Flav 3 is 8
+		d1,9						r
+		U1,2
+finished filling machine 1
+Cargo of Flav 0 is 1
+Cargo of Flav 1 is 0
+Cargo of Flav 2 is 0
+Cargo of Flav 3 is 5
+Cargo Size: 6
+Inventory of Flav 0 is 10
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 8
+Inventory of Flav 3 is 10
+		D1,6	G19	B1			R	B2,7
 		P19	P
+Filling up machine 0
+MaxStockPerFlaver is 10
+Cargo of Flav 0 is 2
+Cargo of Flav 1 is 7
+Cargo of Flav 2 is 7
+Cargo of Flav 3 is 3
+Cargo Size: 19
+Inventory of Flav 0 is 10
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 10
+Inventory of Flav 3 is 10
 		d0,19					r
+finished filling machine 0
+Cargo of Flav 0 is 2
+Cargo of Flav 1 is 7
+Cargo of Flav 2 is 7
+Cargo of Flav 3 is 3
+Cargo Size: 19
+Inventory of Flav 0 is 10
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 10
+Inventory of Flav 3 is 10
 		D0,19					R
+Filling up machine 1
+MaxStockPerFlaver is 10
+Cargo of Flav 0 is 2
+Cargo of Flav 1 is 7
+Cargo of Flav 2 is 7
+Cargo of Flav 3 is 3
+Cargo Size: 19
+Inventory of Flav 0 is 10
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 7
+Inventory of Flav 3 is 10
 		d1,19						r
-t0,3		D1,8		t3			R
-T0,1				T1				B2,9
-			G30	B0
+finished filling machine 1
+Cargo of Flav 0 is 2
+Cargo of Flav 1 is 7
+Cargo of Flav 2 is 4
+Cargo of Flav 3 is 3
+Cargo Size: 16
+Inventory of Flav 0 is 10
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 10
+Inventory of Flav 3 is 10
+Creding Watcard id: 0 amount: 0
+C0,0		D1,16		D			R	B2,9
+not halving the money
+t0,5				t5
+End Balance: 5T0,5				T5
+			X	B5				B2,8
+			G30	B4
 		P30	P
+Filling up machine 0
+MaxStockPerFlaver is 10
+Cargo of Flav 0 is 9
+Cargo of Flav 1 is 9
+Cargo of Flav 2 is 2
+Cargo of Flav 3 is 10
+Cargo Size: 30
+Inventory of Flav 0 is 10
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 10
+Inventory of Flav 3 is 10
 		d0,30					r
+finished filling machine 0
+Cargo of Flav 0 is 9
+Cargo of Flav 1 is 9
+Cargo of Flav 2 is 2
+Cargo of Flav 3 is 10
+Cargo Size: 30
+Inventory of Flav 0 is 10
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 10
+Inventory of Flav 3 is 10
 		D0,30					R
+Filling up machine 1
+MaxStockPerFlaver is 10
+Cargo of Flav 0 is 9
+Cargo of Flav 1 is 9
+Cargo of Flav 2 is 2
+Cargo of Flav 3 is 10
+Cargo Size: 30
+Inventory of Flav 0 is 10
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 8
+Inventory of Flav 3 is 10
 		d1,30						r
-t0,3		D1,29		t3			R
-T0,3			G23	T3
+finished filling machine 1
+Cargo of Flav 0 is 9
+Cargo of Flav 1 is 9
+Cargo of Flav 2 is 0
+Cargo of Flav 3 is 10
+Cargo Size: 28
+Inventory of Flav 0 is 10
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 10
+Inventory of Flav 3 is 10
+		D1,28	G23	B3			R	B2,9
 		P23	P
+Filling up machine 0
+MaxStockPerFlaver is 10
+Cargo of Flav 0 is 7
+Cargo of Flav 1 is 1
+Cargo of Flav 2 is 10
+Cargo of Flav 3 is 5
+Cargo Size: 23
+Inventory of Flav 0 is 10
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 10
+Inventory of Flav 3 is 10
 		d0,23					r
+finished filling machine 0
+Cargo of Flav 0 is 7
+Cargo of Flav 1 is 1
+Cargo of Flav 2 is 10
+Cargo of Flav 3 is 5
+Cargo Size: 23
+Inventory of Flav 0 is 10
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 10
+Inventory of Flav 3 is 10
 		D0,23					R
+Filling up machine 1
+MaxStockPerFlaver is 10
+Cargo of Flav 0 is 7
+Cargo of Flav 1 is 1
+Cargo of Flav 2 is 10
+Cargo of Flav 3 is 5
+Cargo Size: 23
+Inventory of Flav 0 is 10
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 9
+Inventory of Flav 3 is 10
 		d1,23						r
-		D1,23		B2			R	B2,9
+finished filling machine 1
+Cargo of Flav 0 is 7
+Cargo of Flav 1 is 1
+Cargo of Flav 2 is 9
+Cargo of Flav 3 is 5
+Cargo Size: 22
+Inventory of Flav 0 is 10
+Inventory of Flav 1 is 10
+Inventory of Flav 2 is 10
+Inventory of Flav 3 is 10
+		D1,22					R
 ...	...	...	...	...	...	...	F	...
 ...	F	...	...	...	...	...	...	...
 ...	...	...	...	...	...	...	...	F

@@ -2,4 +2,4 @@
 make clean
 make
 ./soda soda.config 3 > realout
-./soda_64 soda.config 3 > expected out
+./soda_64 soda.config 3 > expectedout
