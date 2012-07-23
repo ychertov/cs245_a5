@@ -15,8 +15,8 @@ VendingMachine::VendingMachine( Printer &prt, NameServer &nameServer, unsigned i
 	this->inv[JAZZ_LIME] = 0;
 }
 VendingMachine::~VendingMachine() {//destructor
-	delete inv;
 	prt.print(KIND, id, FINISHED);//update status
+	delete inv;
 }
 
 VendingMachine::Status VendingMachine::buy( Flavours flavour, WATCard *&card ) {

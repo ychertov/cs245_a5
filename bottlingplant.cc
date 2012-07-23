@@ -38,12 +38,12 @@ void BottlingPlant::getShipment( unsigned int cargo[] ) {
 }
 
 void BottlingPlant::action() {
-	if (prng(5) == 0) {
+	if (prng(4) == 0) {
 		prt.print(KIND, STRIKE);
 		return;
 	}
 	
-	if (prng(timeBetweenShipments-1) == 0) {
+	if (prng(timeBetweenShipments-1) != 0) {
 		return;
 	}
 	

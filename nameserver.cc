@@ -27,8 +27,8 @@ NameServer::NameServer( Printer &prt, unsigned int numVendingMachines, unsigned 
 }
 
 NameServer::~NameServer() {
-	this->prt.print(KIND, FINISHED);
 	delete machineList;
+	this->prt.print(KIND, FINISHED);
 }
 
 void NameServer::VMregister( VendingMachine *vendingmachine ) {
