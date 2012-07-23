@@ -16,8 +16,8 @@ void Student::refreshMachine() {
 
 
 Student::Student( Printer &prt, NameServer &nameServer, WATCardOffice &cardOffice, unsigned int id, unsigned int maxPurchases ) : prt(prt), nameServer(nameServer), cardOffice(cardOffice), id(id) {
-	purchasesRemaining = prng(maxPurchases+1);
-	switch(prng(FlavourInfo::FLAVOUR_LENGTH-1)) {
+	purchasesRemaining = prng(maxPurchases) + 1;
+	switch(prng(FlavourInfo::FLAVOUR_LENGTH)) {
 		case 0:
 			faveFlave = BLUES_BLACK_CHERRY; 
 			break;
@@ -56,8 +56,7 @@ bool Student::action() {
 	VendingMachine::Status buyResult = currentMachine->buy(faveFlave, watcard);
 	if (watcard == NULL) {
 		prt.print(KIND, id, WATCARD_DESTROYED);
-		watcard = cardOffice.create(id, 0);
-		makeTransfer(5);
+		watcard = cardOffice.create(id, 5);
 	}
 
 	switch(buyResult) {
