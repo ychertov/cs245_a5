@@ -6,7 +6,7 @@
 #include <iostream> 
 
 extern PRNG prng;
-static const int CHANCE = 4; //1 in 4 chance (3 = 4 - 1)
+static const int CHANCE = 4; //1 in 4 chance
 
 WATCardOffice::WATCardOffice( Printer &prt ) : prt(prt) {
 	prt.print(KIND, START);

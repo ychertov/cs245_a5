@@ -17,7 +17,7 @@ class VendingMachine {
 		static const char FINISHED = 'F';
 
 		Printer &prt;
-		NameServer nameServer;
+		NameServer& nameServer;
 		unsigned int id;
 		unsigned int sodaCost;
 		unsigned int maxStockPerFlavour;
