@@ -18,18 +18,7 @@ unsigned int Truck::getCargoVolume(unsigned int cargo[]) {
 void Truck::restock(VendingMachine* vm, unsigned int cargo[]) {
 	prt.print(KIND, BEGIN_DELIVERY, vm->getId(), getCargoVolume(cargo));
 	
-	DEBUG(std::cout << "Filling up machine " << vm->getId() << std::endl);
-	DEBUG(std::cout << "MaxStockPerFlaver is " << maxStockPerFlavour << std::endl);
-		
-	for (int i = 0; i < FlavourInfo::FLAVOUR_LENGTH; i++)	
-		DEBUG(std::cout << "Cargo of Flav " << i << " is " << cargo[i] << std::endl);	
-
-	DEBUG(std::cout << "Cargo Size: " << getCargoVolume(cargo) << std::endl);
-	
 	unsigned int* inv = vm->inventory();
-
-	for (int i = 0; i < FlavourInfo::FLAVOUR_LENGTH; i++)
-		DEBUG(std::cout << "Inventory of Flav " << i << " is " << inv[i] << std::endl); 	
 
 	for (int i = 0; i < FlavourInfo::FLAVOUR_LENGTH; i++) {
 		
@@ -50,18 +39,9 @@ void Truck::restock(VendingMachine* vm, unsigned int cargo[]) {
 	if (totalUnfilled != 0)
 		prt.print(KIND, UNSUCCESS_FILLING, vm->getId(), totalUnfilled);
 
+	vm->restocked();
 	prt.print(KIND, END_DELIVERY, vm->getId(), getCargoVolume(cargo));
 	
-	DEBUG(std::cout << "finished filling machine " << vm->getId() <<std::endl);
-	for (int i = 0; i < FlavourInfo::FLAVOUR_LENGTH; i++)	
-		DEBUG(std::cout << "Cargo of Flav " << i << " is " << cargo[i] << std::endl);	
-
-	DEBUG(std::cout << "Cargo Size: " << getCargoVolume(cargo) << std::endl);
-	
-	for (int i = 0; i < FlavourInfo::FLAVOUR_LENGTH; i++)
-		DEBUG(std::cout << "Inventory of Flav " << i << " is " << inv[i] << std::endl); 	
-		
-	vm->restocked();
 }
 
 void Truck::action() {

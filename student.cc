@@ -17,7 +17,8 @@ void Student::refreshMachine() {
 
 Student::Student( Printer &prt, NameServer &nameServer, WATCardOffice &cardOffice, unsigned int id, unsigned int maxPurchases ) : prt(prt), nameServer(nameServer), cardOffice(cardOffice), id(id) {
 	purchasesRemaining = prng(maxPurchases) + 1;
-	switch(prng(FlavourInfo::FLAVOUR_LENGTH)) {
+	int favFlave = prng(FlavourInfo::FLAVOUR_LENGTH);	
+	switch(favFlave) {
 		case 0:
 			faveFlave = BLUES_BLACK_CHERRY; 
 			break;
