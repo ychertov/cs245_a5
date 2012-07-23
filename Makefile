@@ -1,5 +1,5 @@
 CXX = g++ 
-CXXFLAGS = -g -Wall -Wextra -Werror -O2 -MMD -D DEBUG_ON 
+CXXFLAGS = -g -Wall -Wextra -Werror -O2 -MMD #-D DEBUG_ON 
 OBJECTS = bottlingplant.o nameserver.o student.o truck.o vendingmachinecardeater.o vendingmachine.o vendingmachineovercharger.o watcard.o watcardoffice.o
 TEST_DRIVERS = twatcard.o twatcardoffice.o ttruck.o tvendingmachine.o tdriver.o
 
