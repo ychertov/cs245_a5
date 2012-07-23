@@ -44,7 +44,7 @@ unsigned int *VendingMachine::inventory() {
 }
 
 void VendingMachine::restocked() {
-	prt.print(KIND, DONE_RELOADING);
+	prt.print(KIND, id, DONE_RELOADING);
 /*
 	called to indicate the restocking is complete.
 */

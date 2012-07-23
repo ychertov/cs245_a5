@@ -16,9 +16,9 @@ unsigned int Truck::getCargoVolume(unsigned int cargo[]) {
 }
 
 void Truck::restock(VendingMachine* vm, unsigned int cargo[]) {
+	unsigned int* inv = vm->inventory();
 	prt.print(KIND, BEGIN_DELIVERY, vm->getId(), getCargoVolume(cargo));
 	
-	unsigned int* inv = vm->inventory();
 
 	for (int i = 0; i < FlavourInfo::FLAVOUR_LENGTH; i++) {
 		
@@ -39,8 +39,9 @@ void Truck::restock(VendingMachine* vm, unsigned int cargo[]) {
 	if (totalUnfilled != 0)
 		prt.print(KIND, UNSUCCESS_FILLING, vm->getId(), totalUnfilled);
 
-	vm->restocked();
 	prt.print(KIND, END_DELIVERY, vm->getId(), getCargoVolume(cargo));
+	DEBUG(std::cout << "Stating Restart " << vm->getId() << std::endl);	
+	vm->restocked();
 	
 }
 
@@ -54,7 +55,8 @@ void Truck::action() {
 	VendingMachine** machineList = nameServer.getMachineList();
 
 	for (unsigned int i = 0; i < numVendingMachines; i++) {
-		restock(machineList[i], cargo);
+		if (getCargoVolume(cargo) > 0)		
+			restock(machineList[i], cargo);
 	}
 
 }
