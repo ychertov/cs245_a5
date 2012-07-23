@@ -22,11 +22,12 @@ WATCard *WATCardOffice::create( unsigned int id, unsigned int amount ) {
 
 void WATCardOffice::transfer( unsigned int id, unsigned int amount, WATCard &card) {
 	prt.print(KIND, BEGIN_TRANSFER, id, amount);
-	if( prng(CHANCE) == 0) {//one in 4 chances of halfing amount
-		DEBUG(std::cout << "Halfing the money" << std::endl);
+	if( prng(CHANCE-1) == 0) {//one in 4 chances of halfing amount
+		DEBUG(std::cout << "Halfing the money from " << amount);
 		amount/=2;
+		DEBUG(std::cout << " to " << amount << std::endl);
 	} else {
-		DEBUG(std::cout << "not halving the money" << std::endl);
+		DEBUG(std::cout << "not halving the money " << amount << std::endl);
 	}	
 	card.credit(amount);
 	prt.print(KIND, END_TRANSFER, id, amount);

@@ -40,7 +40,6 @@ void Truck::restock(VendingMachine* vm, unsigned int cargo[]) {
 		prt.print(KIND, UNSUCCESS_FILLING, vm->getId(), totalUnfilled);
 
 	prt.print(KIND, END_DELIVERY, vm->getId(), getCargoVolume(cargo));
-	DEBUG(std::cout << "Stating Restart " << vm->getId() << std::endl);	
 	vm->restocked();
 	
 }
